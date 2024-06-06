@@ -1,0 +1,43 @@
+.mat-card {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  backdrop-filter: blur(30px);
+  background-color: rgba(65, 65, 65, 0.308);
+  border: 1px solid #004f4f;
+  cursor: pointer;
+
+  .card-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .card-actions-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    width: 100%;
+  }
+  .card-content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    .repo-stats-container {
+      display: flex;
+      flex-direction: row;
+      align-items: start;
+      justify-content: start;
+
+      .repo-stats-item {
+        margin-right: 15px;
+      }
+    }
+  }
+  span {
+    font-size: 12px;
+  }
+}

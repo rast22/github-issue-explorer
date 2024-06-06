@@ -1,0 +1,16 @@
+<header>
+  <mat-toolbar >
+    <a class="title-link" routerLink="/">
+      <span>Github issue exporter</span>
+    </a>
+    <span class="spacer"></span>
+    @if (githubApiService.token) {
+      <button (click)="githubApiService.logout()" mat-fab extended color="primary" aria-label="Example icon button with a menu icon">
+        Change token
+        <mat-icon>swap_horiz</mat-icon>
+      </button>
+    }
+
+  </mat-toolbar>
+</header>
+
