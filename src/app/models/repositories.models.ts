@@ -1,76 +1,87 @@
+// Interfaces for Search Functionality
 interface ISearch {
-  search: ISearchResult;
+  readonly search: ISearchResult;
 }
 
 interface ISearchResult {
-  edges: Array<INode<IRepo>>;
-  pageInfo: IPageInfo;
-  repositoryCount: number;
+  readonly edges: Array<INode<IRepo>>;
+  readonly pageInfo: IPageInfo;
+  readonly repositoryCount: number;
 }
 
+// Interface for Repository Details
 interface IRepo {
-  name: string;
-  createdAt: string;
-  description: string;
-  url: string;
-  owner: IOwner;
-  stargazers: IStargazers;
-  primaryLanguage: ILanguage;
+  readonly name: string;
+  readonly createdAt: string;
+  readonly description: string;
+  readonly url: string;
+  readonly owner: IOwner;
+  readonly stargazers: IStargazers;
+  readonly primaryLanguage: ILanguage;
 }
 
+// Interface for Repository Language
 interface ILanguage {
-  name?: string;
+  readonly name: string | '';
 }
 
+// Interface for Stargazers
 interface IStargazers {
-  totalCount: number;
+  readonly totalCount: number;
 }
 
+// Interface for Owner Information
 interface IOwner {
-  login: string;
-  url: string;
+  readonly login: string;
+  readonly url: string;
 }
 
+// Interface for Pagination Information
 interface IPageInfo {
-  endCursor: string;
-  startCursor: string;
-  hasNextPage: boolean;
-  hasPreviousPage: boolean;
+  readonly endCursor: string;
+  readonly startCursor: string;
+  readonly hasNextPage: boolean;
+  readonly hasPreviousPage: boolean;
 }
 
+// Interface for Repository with Detailed Information
 interface IRepository {
-  repository: IRepoDetails
+  readonly repository: IRepoDetails;
 }
 
 interface IRepoDetails extends IRepo {
-    issues: IIssueList;
+  readonly issues: IIssueList;
 }
 
+// Interface for Issue List
 interface IIssueList {
-  totalCount: number;
-  edges: Array<INode<IIssue>>;
-  pageInfo: IPageInfo;
+  readonly totalCount: number;
+  readonly edges: Array<INode<IIssue>>;
+  readonly pageInfo: IPageInfo;
 }
 
+// Interface for Issue Details
 interface IIssue {
-  title: string;
-  body: string;
-  createdAt: string;
-  url: string;
-  author: IOwner;
-  labels: {
-    edges: Array<INode<ILabel>>;
+  readonly title: string;
+  readonly body: string;
+  readonly createdAt: string;
+  readonly url: string;
+  readonly author: IOwner;
+  readonly labels: {
+    readonly edges: Array<INode<ILabel>>;
   };
-  bodyText: string;
-  state: string;
+  readonly bodyText: string;
+  readonly state: string;
 }
 
+// Interface for Label Information
 interface ILabel {
-  name: string;
+  readonly name: string;
 }
 
+// Generic Interface for Node
 interface INode<T> {
-  node: T;
+  readonly node: T;
 }
 
 export {

@@ -42,6 +42,7 @@ export class GithubApiService {
 
   logout() {
     this.token = null;
+    this._apollo.client.resetStore(); // Clear Apollo cache
     this._router.navigate(['/'])
   }
 
