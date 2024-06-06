@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        name: angular-meteo-app
+        name: github-issue-explorer
     ports:
       - "80:80"
     volumes:
