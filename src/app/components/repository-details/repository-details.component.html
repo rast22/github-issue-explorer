@@ -5,7 +5,7 @@
       [ownerUsername]="repo.owner.login"
       [ownerUrl]="repo.owner.url"
       [description]="repo.description"
-      [primaryLanguage]="repo.primaryLanguage.name || 'Not defined'"
+      [primaryLanguage]="repo.primaryLanguage?.name || 'Not defined'"
       [stargazerCount]="repo.stargazers.totalCount"
       [createdAt]="repo.createdAt"
       [url]="repo.url"
