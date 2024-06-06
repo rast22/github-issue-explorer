@@ -1,0 +1,64 @@
+@if (repositoryDetailsService.$repositoryDetails | async; as repo) {
+  <mat-card class="repository-details-container">
+    <app-repository-list-card
+      [name]="repo.name"
+      [ownerUsername]="repo.owner.login"
+      [description]="repo.description"
+      [primaryLanguage]="repo.primaryLanguage?.name ?? 'Not defined'"
+      [stargazerCount]="repo.stargazers.totalCount"
+      [createdAt]="repo.createdAt"
+      [url]="repo.url"
+      [onDetailsPage]="true"
+    ></app-repository-list-card>
+    <div class="repository-issues-container">
+      @for (issue of repo.issues.edges; track issue) {
+        <mat-card class="repository-issue-card ">
+          <mat-card-header class="repository-issue-card-header">
+              <mat-card-title>
+                <a
+                  [href]="issue.node.url"
+                  target="_blank">
+                  {{ 'Issue: ' + issue.node.title }}
+                </a>
+                <mat-card-subtitle class="date-container">
+                  Created on: {{ issue.node.createdAt | date:'medium' }} by
+                  <a
+                    class="mat-primary"
+                    [href]="issue.node.author.url"
+                    target="_blank">
+                    {{ issue.node.author?.login }}
+                  </a>
+                </mat-card-subtitle>
+              </mat-card-title>
+
+            <a mat-button color="accent" href="{{ issue.node.url }}" target="_blank">
+              <mat-icon>ios_share</mat-icon>
+              Visit on Github
+            </a>
+          </mat-card-header>
+          <mat-card-content>
+            @if (issue.node.labels.edges.length > 0) {
+              <mat-chip-listbox>
+                @for (label of issue.node.labels.edges; track label.node.name) {
+                  <mat-chip>
+                    {{ label.node.name }}
+                  </mat-chip>
+                }
+              </mat-chip-listbox>
+            }
+            <p matTooltip="{{ issue.node.bodyText }}" matTooltipShowDelay="500" matTooltipPosition="below">
+              {{ issue.node.bodyText | slice:0:200 }}<a [href]="issue.node.url" target="_blank">...</a>
+            </p>            <p>Status: {{ issue.node.state }}</p>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+      <mat-paginator [length]="repositoryDetailsService.pagesAmount"
+                     [pageSize]="10"
+                     (page)="handlePageEvent($event)"
+                     aria-label="Select page">
+      </mat-paginator>
+  </mat-card>
+}
+
+

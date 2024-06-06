@@ -1,0 +1,16 @@
+<div class="token-form-container">
+  <form [formGroup]="tokenForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Your API Token:</mat-label>
+      <input matInput formControlName="token"  placeholder="API_TOKEN" required>
+    </mat-form-field>
+    <button mat-flat-button color="primary" [disabled]="(tokenForm.touched && tokenForm.invalid) || tokenForm.disabled" type="submit">Start browsing</button>
+    @if (errorMessage) {
+      <div class="error">{{ errorMessage }}</div>
+    }
+  </form>
+  <div>
+    <p>It is only stored on your machine as long as you are on this page.</p>
+    <a class="mat" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token" target="_blank">Link to GitHub documentation</a>
+  </div>
+</div>

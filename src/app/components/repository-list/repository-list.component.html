@@ -1,0 +1,23 @@
+@if (repositoryListService.$repositories | async; as repositories) {
+<div class="repository-list-container">
+
+  @for (repo of repositories.edges; track repo.node.url){
+    <app-repository-list-card
+    [name]="repo.node.name"
+    [ownerUsername]="repo.node.owner.login"
+    [ownerUrl]="repo.node.owner.url"
+    [description]="repo.node.description"
+    [primaryLanguage]="repo.node.primaryLanguage?.name ?? 'Not defined'"
+    [stargazerCount]="repo.node.stargazers.totalCount"
+    [createdAt]="repo.node.createdAt"
+    [url]="repo.node.url"
+    ></app-repository-list-card>
+  }
+
+  <mat-paginator [length]="repositoryListService.pagesAmount"
+                 [pageSize]="10"
+                 (page)="handlePageEvent($event)"
+                 aria-label="Select page">
+  </mat-paginator>
+</div>
+}

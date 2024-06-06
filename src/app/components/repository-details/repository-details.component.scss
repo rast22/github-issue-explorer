@@ -1,0 +1,59 @@
+.repository-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 1rem;
+  width:  60vw;
+  border-radius: 10px;
+  backdrop-filter: blur(30px);
+  background-color: rgba(65, 65, 65, 0.308);
+  border: 1px solid #004f4f;
+
+  .repository-header {
+    background: transparent;
+
+    span {
+      font-size: 12px;
+    }
+  }
+
+  .repository-issues-container {
+    display: flex;
+    flex-direction: column;
+
+    .repository-issue-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 5px;
+      background: transparent;
+      border-bottom: #004f4f 1px solid;
+
+      .date-container {
+        margin-bottom: 20px;
+      }
+
+      .repository-issue-card-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        background: transparent;
+        .title-container {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+        }
+      }
+
+    }
+  }
+
+
+  .pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+}

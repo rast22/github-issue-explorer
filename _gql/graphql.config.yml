@@ -1,0 +1,10 @@
+schema:
+  - https://api.github.com/graphql:
+      headers:
+        Authorization: 'Bearer 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'
+extensions:
+  endpoints:
+    default:
+      url: https://api.github.com/graphql
+      headers:
+        Authorization: 'Bearer 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'
