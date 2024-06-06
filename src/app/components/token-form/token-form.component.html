@@ -1,5 +1,6 @@
 <div class="token-form-container">
-  <form [formGroup]="tokenForm" (ngSubmit)="onSubmit()">
+  <h1>Enter your GitHub API Token</h1>
+  <form class="token-form" [formGroup]="tokenForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <mat-label>Your API Token:</mat-label>
       <input matInput formControlName="token"  placeholder="API_TOKEN" required>
@@ -9,7 +10,7 @@
       <div class="error">{{ errorMessage }}</div>
     }
   </form>
-  <div>
+  <div class="additional-info">
     <p>It is only stored on your machine as long as you are on this page.</p>
     <a class="mat" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token" target="_blank">Link to GitHub documentation</a>
   </div>

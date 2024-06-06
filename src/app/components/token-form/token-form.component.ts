@@ -43,7 +43,8 @@ export class TokenFormComponent {
         this._router.navigate(['/repositories']);
       },
       error: (e) => {
-        this.errorMessage = 'Invalid token. Please try again.';
+        this.errorMessage = 'The Token you provided is invalid.';
+        this.tokenForm.controls['token'].setErrors({invalid: true});
         this.tokenForm.enable();
       },
       complete: () => {
