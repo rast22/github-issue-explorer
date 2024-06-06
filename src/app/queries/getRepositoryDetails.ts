@@ -38,6 +38,7 @@ export default gql`
               }
             }
             bodyText
+            bodyHTML
           }
         }
         pageInfo {

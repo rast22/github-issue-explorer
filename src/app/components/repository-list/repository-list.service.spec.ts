@@ -42,7 +42,7 @@ describe('RepositoryListService', () => {
       }
     };
 
-    (service as any)._repositoriesList.next(searchResult); // Set private variable for test
+    (service as any)._repositoriesList.next(searchResult);
     expect(service.pagesAmount).toBe(3); // 25 repositories / 10 per page = 2.5 pages, rounded up to 3
   });
 

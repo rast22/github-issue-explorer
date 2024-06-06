@@ -33,6 +33,7 @@ query GetRepositoryDetails($owner: String!, $name: String!, $first: Int, $last: 
             }
           }
           bodyText
+          bodyHTML
         }
       }
       pageInfo {

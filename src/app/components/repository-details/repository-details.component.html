@@ -3,6 +3,7 @@
     <app-repository-list-card
       [name]="repo.name"
       [ownerUsername]="repo.owner.login"
+      [ownerUrl]="repo.owner.url"
       [description]="repo.description"
       [primaryLanguage]="repo.primaryLanguage?.name ?? 'Not defined'"
       [stargazerCount]="repo.stargazers.totalCount"
