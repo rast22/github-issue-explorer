@@ -27,9 +27,7 @@ export class RepositoryListService {
    */
   get(variables?: {[key: string]: string}) {
     this._githubService.query<ISearch>(getRepositories,variables).subscribe({
-      next: (result) => {
-        this._repositoriesList.next(result.search);
-      }
+      next: (result) => this._repositoriesList.next(result.search)
     })
   }
 

@@ -113,6 +113,7 @@ export class GithubApiService {
   validateToken() {
     return this.query(validateToken, {}).pipe(
       catchError((e: ApolloError) => {
+        this.token = null;
         return throwError(() => new Error(e.networkError?.message));
       })
     )

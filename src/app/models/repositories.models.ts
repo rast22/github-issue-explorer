@@ -17,12 +17,12 @@ interface IRepo {
   readonly url: string;
   readonly owner: IOwner;
   readonly stargazers: IStargazers;
-  readonly primaryLanguage: ILanguage;
+  readonly primaryLanguage?: ILanguage;
 }
 
 // Interface for Repository Language
 interface ILanguage {
-  readonly name: string | '';
+  readonly name: string;
 }
 
 // Interface for Stargazers

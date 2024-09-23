@@ -29,7 +29,7 @@ export class TokenFormComponent implements OnDestroy{
     private _router: Router,
     private _githubApiService: GithubApiService) {
     this.tokenForm = this._fb.group({
-      token: [this._githubApiService.token ?? '', Validators.required]
+      token: ['', Validators.required]
     });
   }
 
@@ -42,7 +42,10 @@ export class TokenFormComponent implements OnDestroy{
     this.subscription.add(
       this._githubApiService.validateToken().subscribe({
         next: () => {
-          this._router.navigate(['/repositories']);
+          this.tokenForm.reset();
+          this._router.navigate(['/repositories', {
+            replaceUrl: true
+          }]);
         },
         error: () => {
           this.errorMessage = 'The Token you provided is invalid.';
